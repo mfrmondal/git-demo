@@ -25,21 +25,21 @@ pipeline {
         stage('Build') {
             steps {
                 // Build your application here (e.g., compile, package, etc.)
-                echo "In Build Step updated"
+                bat 'In Build Step updated'
             }
         }
 
         stage('Test') {
             steps {
                 // Run your tests (e.g., unit tests, integration tests)
-                echo 'echo "In Test Step"'
+                bat "In Test Step updated"
             }
         }
 
         stage('Deploy') {
             steps {
                 // Deploy your application to a target environment (e.g., staging, production)
-                echo '"Value of ENV Varaible is "$MY_ENV_VAR""'
+                bat '"Value of ENV Varaible is "$MY_ENV_VAR""'
             }
         }
     }
