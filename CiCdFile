@@ -25,21 +25,21 @@ pipeline {
         stage('Build') {
             steps {
                 // Build your application here (e.g., compile, package, etc.)
-                bat 'In Build Step updated'
+                bat ' echo In Build Step updated'
             }
         }
 
         stage('Test') {
             steps {
                 // Run your tests (e.g., unit tests, integration tests)
-                bat "In Test Step updated"
+                bat "echo In Test Step updated"
             }
         }
 
         stage('Deploy') {
             steps {
                 // Deploy your application to a target environment (e.g., staging, production)
-                bat '"Value of ENV Varaible is "$MY_ENV_VAR""'
+                bat 'echo "Value of ENV Varaible is "$MY_ENV_VAR""'
             }
         }
     }
@@ -47,11 +47,11 @@ pipeline {
     post {
         success {
             // Actions to perform when the pipeline succeeds
-            echo 'Pipeline succeeded!'
+            bat 'echo Pipeline succeeded!*!'
         }
         failure {
             // Actions to perform when the pipeline fails
-            echo 'Pipeline failed!'
+            bat 'echo Pipeline failed!!!!!'
         }
     }
 }
