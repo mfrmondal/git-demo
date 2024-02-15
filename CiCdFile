@@ -4,7 +4,7 @@ pipeline {
     environment {
         // Define environment variables here
         MY_ENV_VAR = 'Custom Value'
-		SECRET=credential('TEST')
+
     }
 
     stages {
@@ -42,7 +42,7 @@ pipeline {
             steps {
                 // Run your tests (e.g., unit tests, integration tests)
                 echo "In Secret Step"
-				bat 'echo $SECRET'
+
             }
         }
 
