@@ -11,7 +11,7 @@ pipeline {
             steps {
                 script {
                     // Clone the Git repository's master branch
-                    def gitRepoUrl = 'https://github.com/mfmondal/git-demo.git'
+                    def gitRepoUrl = 'https://github.com/mfrmondal/git-demo.git'
 
                     checkout([$class: 'GitSCM', 
                         branches: [[name: '*/master']], 
