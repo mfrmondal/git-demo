@@ -4,6 +4,7 @@ pipeline {
     environment {
         // Define environment variables here
         MY_ENV_VAR = 'Custom Value'
+		SECRET=credential('TEST')
     }
 
     stages {
@@ -36,11 +37,19 @@ pipeline {
                 echo "echo In Test Step updated"
             }
         }
+		
+		 stage('Secret') {
+            steps {
+                // Run your tests (e.g., unit tests, integration tests)
+                echo "In Secret Step"
+				bat 'echo $SECRET'
+            }
+        }
 
         stage('Deploy') {
             steps {
                 // Deploy your application to a target environment (e.g., staging, production)
-                echo 'echo "Value of ENV Varaible is "$MY_ENV_VAR""'
+                bat 'echo Value of ENV Varaible is $MY_ENV_VAR'
             }
         }
     }
