@@ -18,6 +18,7 @@ pipeline {
                         userRemoteConfigs: [[url: gitRepoUrl]], 
                         extensions: [[$class: 'CleanBeforeCheckout'], [$class: 'CloneOption', noTags: false, shallow: true, depth: 1]]
                     ])
+					echo 'Checked out'
                 }
             }
         }
@@ -25,21 +26,21 @@ pipeline {
         stage('Build') {
             steps {
                 // Build your application here (e.g., compile, package, etc.)
-                bat ' echo In Build Step updated'
+                bat 'echo In Build Step updated again'
             }
         }
 
         stage('Test') {
             steps {
                 // Run your tests (e.g., unit tests, integration tests)
-                bat "echo In Test Step updated"
+                echo "echo In Test Step updated"
             }
         }
 
         stage('Deploy') {
             steps {
                 // Deploy your application to a target environment (e.g., staging, production)
-                bat 'echo "Value of ENV Varaible is "$MY_ENV_VAR""'
+                echo 'echo "Value of ENV Varaible is "$MY_ENV_VAR""'
             }
         }
     }
