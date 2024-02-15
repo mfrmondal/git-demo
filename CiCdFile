@@ -43,7 +43,7 @@ pipeline {
             steps {
                 // Run your tests (e.g., unit tests, integration tests)
                 echo "In Secret Step"
-				echo "Secret text is $SECRET_TEXT"
+				bat "echo 'Secret text is $SECRET_TEXT'"
 
             }
         }
@@ -51,7 +51,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 // Deploy your application to a target environment (e.g., staging, production)
-                bat 'echo Value of ENV Varaible is $MY_ENV_VAR'
+                bat "echo 'Value of ENV Varaible is $MY_ENV_VAR'"
             }
         }
     }
